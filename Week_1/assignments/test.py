@@ -43,7 +43,45 @@
 
 # print(someDictionary.get("cars"))
 
-def list_cars():
-    return ("camaro","ford")
+# def list_cars():
+#     return ("camaro","ford")
 
-print(list_cars())
+# print(list_cars())
+
+
+
+# fruits = {}
+
+# fruits["core"]="mango"
+# fruits["pulp"]="pawpaw"
+
+
+# print(len(fruits))
+
+# for val in "string":
+#     if val == "i":
+#         continue
+#     print(val)
+
+# x = 2
+
+# if not x:
+#     print("i am here")
+    
+    
+
+from unicodedata import name
+
+
+def cars(car1 = "subaru"):
+    print(car1)
+    
+cars("tesla")
+
+def names_and_age(first_name = "Majili",second_name = "Kilo",age = 50):
+    print(f"{first_name}\n{second_name}\n{age}")
+    
+def names_and_age(first_name = "Majili",second_name = "Kilo"):
+    print(f"{first_name}\n{second_name}")
+    
+names_and_age("kiiza","kisa",67);

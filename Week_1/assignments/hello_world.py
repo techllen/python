@@ -15,22 +15,23 @@ print("I love to eat {} and {}".format(fave_food1,fave_food2)) # with .format()
 print(f"I love to eat {fave_food1} and {fave_food2}") # with an f string
 
 #5.Bonus String manipulation
-a = """Lorem ipsum dolor sit amet,
-consectetur adipiscing elit,
-sed do eiusmod tempor incididunt
-ut labore et dolore magna aliqua."""
+# a = """Lorem ipsum dolor sit amet,
+# consectetur adipiscing elit,
+# sed do eiusmod tempor incididunt
+# ut labore et dolore magna aliqua."""
 
-long_string = "I love coding dojo"
+# long_string = "I love coding dojo"
 
-print(a[1])
-print("love" in long_string)
-print(long_string[-6:-1])
-print(long_string.split("o"))
+# print(a[1])
+# print("love" in long_string)
+# print(long_string[-6:-1])
+# print(long_string.split("o"))
 
-print("I love\"\n moonfall\""+ str(2))
+# print("I love\"\n moonfall\""+ str(2))
 
-for x in long_string:
-    print(x)
+# for x in long_string:
+#     print(x)
+
 
 
 
