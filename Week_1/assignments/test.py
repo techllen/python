@@ -16,7 +16,6 @@
 # print(min(numbers))
 # print(sorted(numbers))
 
-
 # x = "First string"
 # y = "Second string"
 
@@ -48,13 +47,10 @@
 
 # print(list_cars())
 
-
-
 # fruits = {}
 
 # fruits["core"]="mango"
 # fruits["pulp"]="pawpaw"
-
 
 # print(len(fruits))
 
@@ -63,25 +59,50 @@
 #         continue
 #     print(val)
 
-# x = 2
+from http.client import SWITCHING_PROTOCOLS
+
+
+x = 2
 
 # if not x:
 #     print("i am here")
-    
-    
 
-from unicodedata import name
+# from unicodedata import name
 
+# def cars(car1 = "subaru"):
+#     # print(car1)
+#     return x
+# return x
+    
+# print(cars())
+    
+# cars("tesla")
 
-def cars(car1 = "subaru"):
-    print(car1)
+# def names_and_age(first_name = "Majili",second_name = "Kilo",age = 50):
+#     print(f"{first_name}\n{second_name}\n{age}")
     
-cars("tesla")
+# def names_and_age(first_name = "Majili",second_name = "Kilo"):
+#     print(f"{first_name}\n{second_name}")
+    
+# names_and_age("kiiza","kisa",67);
 
-def names_and_age(first_name = "Majili",second_name = "Kilo",age = 50):
-    print(f"{first_name}\n{second_name}\n{age}")
-    
-def names_and_age(first_name = "Majili",second_name = "Kilo"):
-    print(f"{first_name}\n{second_name}")
-    
-names_and_age("kiiza","kisa",67);
+# def add(b,c):
+#     print(b+c)
+# print(add(1,2) + add(2,3))
+
+integers = [3,4,7]
+
+for integer in integers:
+    if(integer%2 == 0):
+        print(f"{integer} is even")
+    elif(integer%2 == 1):
+        print(f"{integer} is odd")
+        
+        
+def sum_list(list_of_numbers):
+    sum = 0
+    for number in list_of_numbers:
+        sum = sum + number
+    return sum
+
+print(sum_list([7,9,9,8]))
