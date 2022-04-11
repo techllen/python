@@ -4,7 +4,7 @@ class User:
         self.name = name
         self.account_balance = account_balance
     # Adding deposit functionality
-    def deposit(self,amount):
+    def make_deposit(self,amount):
         self.account_balance +=amount
         return self
     # Add a make_withdrawal method to the User class
@@ -29,30 +29,30 @@ user3 = User("Majani Kilo",1000)
      
 # Have the first user make 3 deposits and 1 withdrawal and then display their balance
 # 3 deposit
-user1.deposit(300)
-user1.deposit(400)
-user1.deposit(900)
+user1.deposit(300).deposit(400).deposit(900).make_withdrawal(600).display_user_balance()
+# user1.deposit(400)
+# user1.deposit(900)
 # 1 withdrawal
-user1.make_withdrawal(600)
-user1.display_user_balance()
+# user1.make_withdrawal(600)
+# user1.display_user_balance()
 
 # Have the second user make 2 deposits and 2 withdrawals and then display their balance
 # 2 deposits
-user2.deposit(700)
-user2.deposit(800)
-user2.display_user_balance()
+user2.deposit(700).deposit(800).display_user_balance()
+# user2.deposit(800)
+# user2.display_user_balance()
 
 # Have the third user make 1 deposits and 3 withdrawals and then display their balance
 # 1 deposit
-user3.deposit(1000)
+user3.deposit(1000).make_withdrawal(300).make_withdrawal(200).make_withdrawal(500).display_user_balance().transfer_money(user3,300)
 
 # 3 withdrawals
-user3.make_withdrawal(300)
-user3.make_withdrawal(200)
-user3.make_withdrawal(500)
-user3.display_user_balance()
+# user3.make_withdrawal(300)
+# user3.make_withdrawal(200)
+# user3.make_withdrawal(500)
+# user3.display_user_balance()
 
-user1.transfer_money(user3,300)
+# user1.transfer_money(user3,300)
 
 
 
