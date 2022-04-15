@@ -59,10 +59,10 @@
 #         continue
 #     print(val)
 
-from http.client import SWITCHING_PROTOCOLS
+# from http.client import SWITCHING_PROTOCOLS
 
 
-x = 2
+# x = 2
 
 # if not x:
 #     print("i am here")
@@ -107,10 +107,18 @@ x = 2
 
 # print(sum_list([7,9,9,8]))
 
-class User:
+# class User:
     
-    def __init__(self,first_name,last_name,age):
-        self.first_name = first_name
-        self.last_name = last_name
-        self.age = age
+#     def __init__(self,first_name,last_name,age):
+#         self.first_name = first_name
+#         self.last_name = last_name
+#         self.age = age
         
+        
+        
+# MODULES
+# import the library
+import urllib.request
+response = urllib.request.urlopen("http://www.codingdojo.com")
+html = response.read()
+print(html)
