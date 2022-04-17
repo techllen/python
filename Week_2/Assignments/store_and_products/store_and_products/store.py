@@ -12,10 +12,11 @@ class Store:
         return self
 # Add the sell_product method to the Store class
     def sell_product(self,id):
-        for id in range(0,len(self.list_of_products)):
-            product_to_remove = self.list_of_products[id]
-        self.list_of_products.remove(product_to_remove)
-        print(f"You are about to delete {product_to_remove}")
+        for product_id in range(0,len(self.list_of_products)):
+            if product_id == id:
+                product_to_remove = self.list_of_products[id]
+                self.list_of_products.pop(id)
+                print(f"\n{product_to_remove.name} got removed from the store\n")
         return self
 # NINJA BONUS: Add the inflation method to the Store class
     def inflation(self,percent_increase):
@@ -59,20 +60,26 @@ shoes = Product("Timberland",50,"Steel Toe Shoes")
 # adding all products
 whittset_store.add_product(women_purses).add_product(outdoor_equipments).add_product(shoes)
 
+# printing information for all products
+print("*****************BEFORE METHOD APPLIED*************")
+for product in whittset_store.list_of_products:
+    product.print_info()
+
+# TESTING THE METHODS
 # sell product
 # whittset_store.sell_product(1)
 
 # updating price
 # women_purses.update_price(10,False)
 
-# printing information for all products
-for product in whittset_store.list_of_products:
-    product.print_info()
-    
+# Checking for inflation
 # whittset_store.inflation(10)
 
+# apply clearance
 whittset_store.set_clearance("Women",10)
 
 # printing information for all products after all price changes
+print("\n*****************AFTER METHOD APPLIED***************")
 for product in whittset_store.list_of_products:
     product.print_info()
+
