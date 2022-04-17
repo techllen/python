@@ -68,7 +68,6 @@ class BankAccount:
 user1 = User("Mkami Malcelina")
 # adding account to the user and calling a choose method for the user to choose the account
 user1.add_account(BankAccount(7.89,"Savings",198)).add_account(BankAccount(13.35,"Checking",15469)).choose_account()
-
 # second user
 # opening multiple accounts for the user
 user2 = User("Aly Shawari")
