@@ -67,7 +67,7 @@ for product in whittset_store.list_of_products:
 
 # TESTING THE METHODS
 # sell product
-# whittset_store.sell_product(1)
+whittset_store.sell_product(1)
 
 # updating price
 # women_purses.update_price(10,False)
@@ -76,7 +76,7 @@ for product in whittset_store.list_of_products:
 # whittset_store.inflation(10)
 
 # apply clearance
-whittset_store.set_clearance("Women",10)
+# whittset_store.set_clearance("Women",10)
 
 # printing information for all products after all price changes
 print("\n*****************AFTER METHOD APPLIED***************")

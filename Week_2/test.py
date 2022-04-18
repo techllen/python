@@ -107,10 +107,23 @@ x = 2
 
 # print(sum_list([7,9,9,8]))
 
-class User:
+# class User:
     
-    def __init__(self,first_name,last_name,age):
-        self.first_name = first_name
-        self.last_name = last_name
-        self.age = age
+#     def __init__(self,first_name,last_name,age):
+#         self.first_name = first_name
+#         self.last_name = last_name
+#         self.age = age
         
+
+def varargs(arg1, *args):
+    # print("Got ", arg1, " and ", args)
+    for a in args:
+        print(a)
+    
+varargs("one") # output: Got one and ()
+varargs("one", "two") # output: Got one and ('two',)
+varargs("one", "two", "three") # output: Got one and ('two', 'three')
+
+
+    
+
