@@ -1,0 +1,15 @@
+use dojos_and_ninjas_schema;
+
+-- Query: Create 3 new dojos
+-- insert into dojos(name,created_at,updated_at)
+-- values ('coding dojo 2012',current_timestamp(),current_timestamp());
+
+-- insert into dojos(name,created_at,updated_at)
+-- values ('coding dojo 2016',current_timestamp(),current_timestamp());
+
+-- insert into dojos(name,created_at,updated_at)
+-- values ('coding dojo 2020',current_timestamp(),current_timestamp());
+
+-- Query: Delete the 3 dojos you just created
+delete from dojos;
+-- select * from dojos;
