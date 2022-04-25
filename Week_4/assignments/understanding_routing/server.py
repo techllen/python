@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask,render_template
 app = Flask(__name__)
 
 # localhost:5000/ - have it say "Hello World!"
@@ -25,30 +25,15 @@ def say_hi(word):
 # localhost:5000/repeat/80/bye - have it say "bye" 80 times
 # localhost:5000/repeat/99/dogs - have it say "dogs" 99 times
 # NINJA BONUS: For the 4th task, ensure the 2nd element in the URL is an integer, and the 3rd element is a string
-@app.route('/repeat/<int:number_of_repeations>/<string:word>')
-def repeat(number_of_repeations,word):
-    # return printing(word,number_of_repeations)
-    words = {1:'key'}
-    for round in range(number_of_repeations):
-        words.update({round,word})
-    return words
-    
+@app.route('/repeat/<int:repeats>/<string:word>')
+def repeat(repeats,word):
+    return render_template('hello.html',repeats = repeats,word = word) 
 
-# A function to return the value we wanna print
-# def printing(phrase,repeations):
-#     for round in range(repeations):
-#         print(str(round) + phrase ) 
-#         return str(round) + phrase 
-    
 # SENSEI BONUS: Ensure that if the user types in any route other than the ones specified, they receive an error message saying "Sorry! No response. Try again."
 @app.errorhandler(404)
-def error():
-    return 'Sorry! No response. Try again.'
+def error(e):
+    return render_template('error.html')
 
 if __name__=="__main__":
     app.run(debug=True)  
 
-# def test():
-#     return printing('dogs',35)
-
-# print(test())
