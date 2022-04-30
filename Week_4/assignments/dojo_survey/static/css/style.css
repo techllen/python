@@ -1,0 +1,39 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-size: 100%;
+    color: #ffffff;
+}
+/* Container */
+.container{
+    display: flex;
+    flex-direction: column;
+    margin: 0px auto;
+    margin-top: 50px;
+    width: 600px;
+    background-color:#070d51;
+    padding: 45px;
+}
+
+/* heading */
+h1{
+    color: #FF5F09;
+}
+
+/* select box  */
+select option{
+    background-color: #070d51;
+}
+
+/* button */
+.btn{
+    background-color: #FF5F09;
+    border: 0px;
+}
+
+/* result page anchor */
+.container a{
+    text-decoration: none;
+}
+
