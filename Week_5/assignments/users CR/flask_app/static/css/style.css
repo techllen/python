@@ -1,0 +1,13 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-size: 100%;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 1000px;
+    display: flex;
+    margin: 0px auto;
+    justify-content: center;
+}
