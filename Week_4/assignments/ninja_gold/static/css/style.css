@@ -1,0 +1,46 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-size: 100%;
+    box-sizing: border-box;
+}
+
+/* container */
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 1200px;
+    margin: 0px auto;
+}
+
+/* form */
+.goldforms{
+    display: flex;
+    justify-content: space-between;
+    margin: 0px auto;
+    width: inherit;
+}
+
+.form-head{
+    font-weight: bolder;
+}
+
+/* main activity div */
+.activities-wrapper{
+    display: flex;
+    flex-direction: column;
+}
+/* activities panel */
+.activities{
+    width: inherit;
+    border: 2px solid #000000;
+}
+
+/* Win and loss class */
+.win{
+    color: #35D461;
+}
+
+.loss{
+    color: #FF0505;
+}

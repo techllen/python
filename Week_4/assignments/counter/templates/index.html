@@ -11,10 +11,10 @@
 <body>
     <main>
         <div class="container">
-            <h1>Counter</h1>
-            <p>{{count}} times</p>
+            <h1>Counter</h1>            
+            <p>{{session['total']}} times</p>
             <div class="buttons">
-                <a href="/increment_by_2"><button type="button" class="btn btn-primary">+ 2</button></a>
+                <a href="/increment_by_two"><button type="button" class="btn btn-primary">+ 2</button></a>
                 <a href="/reset_counter"><button type="button" class="btn btn-primary">Reset</button></a>
             </div>
             <div class="my-form">
@@ -24,7 +24,7 @@
                     <input type="submit" value="increment" class="submit-button" />
                 </form>
             </div>
-            <p>Actual Counter Value :{{actual_counts}}</p>
+            <p>Actual Number of visits by the user: {{session['count']}}</p>
         </div>
     </main>
     <script type="text/javascript" src="{{ url_for('static', filename='/js/script.js') }}"></script>

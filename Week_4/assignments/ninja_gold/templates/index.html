@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ninja Money</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='/css/style.css')}}">
+</head>
+<body>
+    <div class="container">
+        <div class="number-of-gold">
+            <label for="yourgold">Your Gold:  </label>
+            <!-- print the total gold you have earned -->
+            <input type="text" name="yourgold" id="yourgold" value="{{session['gold_total']}}" placeholder="0">
+        </div>
+        <div class="goldforms">
+            <!-- farm form -->
+           <form action="/process_money" method="post">
+               <p class="form-head" >Farm</p>
+                <input type="hidden" name="form_type" value="farm">
+                <p>(Earns 10 to 20 golds)</p>
+                <button type="submit">Find Gold!</button>
+            </form>
+            <form action="/process_money" method="post">
+                <p class="form-head">Cave</p>
+                <input type="hidden" name="form_type" value="cave">
+                <p>(Earns 5 to 10 golds)</p>
+                <button type="submit">Find Gold!</button>
+            </form>
+            <form action="/process_money" method="post">
+                <p class="form-head">House</p>
+                <input type="hidden" name="form_type" value="house">
+                <p>(Earns 2 to 5 golds)</p>
+                <button type="submit">Find Gold!</button>
+            </form>
+            <form action="/process_money" method="post">
+                <p class="form-head">Casino</p>
+                <input type="hidden" name="form_type" value="casino">
+                <p>(Earns 0 to 50 golds)</p>
+                <button type="submit">Find Gold!</button>
+            </form>
+        </div>
+        <div class="activities-wrapper">
+            <p>Activities</p>
+            <div class="activities">
+                {%for activity in session['activities']%}
+                    {%if activity[0] == 'win'%}
+                        <p class="win">{{activity[1]}}</>
+                    {%elif activity[0] == 'loss'%}
+                        <p class="loss">{{activity[1]}}</p>
+                    {%endif%}
+                {%endfor%}
+            </div>
+        </div>
+        <a class="restart" href="/reset">
+            <button type="submit">Restart the game</button>
+        </a>
+    </div>
+    <script type="text/javascript" src="{{ url_for('static',filename='/js/script.js') }}"></script>
+</body>
+</html>

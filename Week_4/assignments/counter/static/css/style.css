@@ -9,6 +9,7 @@
     margin-top: 50px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 h1,p,.buttons,my-form{
