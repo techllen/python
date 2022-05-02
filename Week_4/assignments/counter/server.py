@@ -16,17 +16,14 @@ def show_counter():
         session['count'] += 1
     # with no count in session we will put it as one because its the first time
     else:
-        session['count'] = 1    
-        
+        session['count'] = 0    
     #checking if cookies exists and add them to the total
-    if 'increment_by_two' in session:
+    if 'increment_by_two' in session and 'increments' not in session:
         total = int(session['count']) + int(session['increment_by_two'])
-    elif 'increments' in session:
+    elif 'increments' in session and 'increment_by_two' not in session:
         total = int(session['count']) + int(session['increments'])
-
     elif ('increment_by_two' in session) and ('increments' in session):
         total = int(session['count']) + int(session['increment_by_two']) + int(session['increments'])
-        
     else:
         total = session['count']
     session['total'] = total    
@@ -84,7 +81,6 @@ def error(e):
 # decoding cookie
 # pring count cookies on console
 print(base64.urlsafe_b64decode('eyJjb3VudCI6Mn0==='))
-
 
 # Run the app in debug mode
 if __name__ == '__main__':

@@ -11,8 +11,17 @@ activities = []
 # index route
 @app.route('/')
 def home():
-    # tatal al golds before rendering
+    # tatal all golds before rendering
     # gold_total = session['farm_gold_to_give'] + session['cave_gold_to_give'] + session['house_gold_to_give'] + session['casion_gold_to_give'] + session['casion_gold_to_take_away']
+    # checking if all cookies exists and add all cookies that holds golds to the total
+    if 'farm_gold_to_give' in session and 'cave_gold_to_give' not in session and 'house_gold_to_give' not in session and 'casino_gold_to_give_and_take_away' not in session:
+        session['gold_total'] = int(session['farm_gold_to_give'])
+    elif 'farm_gold_to_give' in session and 'cave_gold_to_give' in session and 'house_gold_to_give' not in session and 'casino_gold_to_give_and_take_away' not in session:
+        session['gold_total'] = int(session['farm_gold_to_give']) + int(session['cave_gold_to_give'])
+    elif 'farm_gold_to_give' in session and 'cave_gold_to_give' in session and 'house_gold_to_give' in session and 'casino_gold_to_give_and_take_away' not in session:
+        session['gold_total'] = int(session['farm_gold_to_give'])+ int(session['cave_gold_to_give'])+ int(session['house_gold_to_give'])
+    elif 'farm_gold_to_give' in session and 'cave_gold_to_give' in session and 'house_gold_to_give' in session and 'casino_gold_to_give_and_take_away' in session:
+        session['gold_total'] = int(session['farm_gold_to_give'])+ int(session['cave_gold_to_give'])+ int(session['house_gold_to_give'])+ int(session['casino_gold_to_give_and_take_away'])
     return render_template('index.html')
 
 # process money route
@@ -54,6 +63,7 @@ def process_money():
         # when a loss event occur
         elif random_event == 2:
             time = datetime.datetime.now()
+            # session['casino_gold_to_give_and_take_away'] = - (session['casino_gold_to_give_and_take_away'])
             activity = ['loss','Entered a casino and lost '+ str(session['casino_gold_to_give_and_take_away']) + ' .....Ouch..... ' +'('+ str((time))+')']
         activities.append(activity) 
         
