@@ -1,0 +1,19 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-size: 100%;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+    margin: 50px auto;
+    justify-content: center;
+}
+
+caption{
+    font-size: 300%;
+    color: #000000;
+}
