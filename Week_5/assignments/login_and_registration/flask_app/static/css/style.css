@@ -1,0 +1,52 @@
+/* Resets */
+*{
+    margin: 0px;
+    padding: 0px;
+    font-size: 100%;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 1000px;
+    display: flex;
+    margin: 0px auto;
+    justify-content: space-around;
+}
+
+.register-form{
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    margin: 0px auto;
+}
+
+.login-form{
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    margin: 0px auto;
+}
+
+h1{
+    font-size: 200%;
+    margin-bottom: 30px;
+}
+
+.mb-3{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+caption{
+    font-size: 200%;
+    color: #000000;
+}
+
+button{
+    position: relative;
+    left: 0px;
+    margin-top: 20px;
+    width: 100px;
+}
+
