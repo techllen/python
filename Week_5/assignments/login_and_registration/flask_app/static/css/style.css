@@ -50,3 +50,22 @@ button{
     width: 100px;
 }
 
+/* flash messages category */
+.error{
+    color:#ff0000;
+}
+
+.informational{
+    color: #1f00ff;
+}
+
+.errors{
+    background-color:#f3d4e1 ;
+    border-radius:5px;
+    padding: 10px;
+}
+
+.errors ul li{
+    list-style: none;
+}
+

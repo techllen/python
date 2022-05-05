@@ -1,5 +1,17 @@
-pipenv install flask==2.0.3 --user
+//installed just oce
+pip install pipenv
 
-pip install pipenv --user
+pip install pipenv --user //used if the above installation fails
+
+****************installed everytime start a project
+pipenv install flask
+
+pipenv install flask==2.0.3 --user //used if the installation above fails
 
 pipenv install flask-bcrypt
+
+
+//installing all together
+pipenv install flask PyMySQL flask-bcrypt
+
+eliya2alex
