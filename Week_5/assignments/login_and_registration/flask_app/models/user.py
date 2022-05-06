@@ -50,17 +50,17 @@ class User:
         # chacking for email format validity
         if not email_regex.match(user['email']):
             # flash message and its category
-            flash('Please enter a valid email address example:name@example.com','informational')
+            flash('Please enter a valid email address example:name@example.com','error')
             is_valid = False
         # checking for password validity(8 characters(alphanumeric),includes at least 1 number,at least 1 uppercase)
-        if not (password_regex.match(user['password']) and len(user['password'])>=8 and User.contains_number(user['password']) and User.contains_uppercase(user['password'])):
+        if not (password_regex.match(user['password']) and len(user['password'])>=8 and re.search('[0-9]',user['password']) is not None and re.search('[A-Z]',user['password']) is not None):
             # flash message and its category
             flash('Password must be at least 8 characters(Alphanumeric), at least one number and at least one uppercase letter','error')
             is_valid = False
         # checking for match btn password and password confirmation field
         if not user['password'] == user['confirmed_password']:
             # flash message and its category
-            flash('Entered password must be the same as confirmed password','informational')
+            flash('Entered password must be the same as confirmed password','error')
             is_valid = False
         return is_valid
     # this method flashed error messages only when invalid credentials have been entered
@@ -69,12 +69,11 @@ class User:
         # flash invalid email message if email was not found
         if invalid_message == 'email_not_found':
             # flash message and its category
-            flash('User is not found,Please enter a valid email address example:name@example.com','informational')
+            flash('User is not found,Please enter a valid email address example:name@example.com','error')
             is_valid = False
         # flash invalid password message if the password is incorrect
         if invalid_message == 'password_not_correct':
             # flash message and its category
             flash('Password is not correct','error')
-    # this method checks if a password string contains at least one number
             
     
