@@ -6,12 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="{{url_for('static',filename='/css/style.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Roboto:wght@300&display=swap" rel="stylesheet">
 
 </head>
 <body>
     <div class="container">
         <h1>Welcome {{first_name}}!!!</h1>
-        <a href="/logout" class="logout"><button >logout</button></a>
+        <a href="/logout" class="logout"><button class="log-out-button" >logout</button></a>
     </div>
     <script type="text/javascript" src="{{ url_for('static', filename='/js/scripts.js') }}"></script>
 </body>

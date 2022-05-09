@@ -1,21 +1,26 @@
-// console.log("CONNECTED TO JS")
+console.log("CONNECTED TO JS")
+
 //this method makes the error div appear and disappear 
-var register_error_div_content = document.getElementById('registererrors').innerHTML.length
-console.log(register_error_div_content)
+function error_visibility(){
+    const errorsDivs = document.querySelector('div')
+    console.log(document.querySelector('li').classList.contains("register-error"))
 
-if (register_error_div_content>72){
-    document.getElementById('registererrors').style.display = 'block'
+    // checking what type of errors are present
+    // when register errors are present
+    if (document.querySelector('li').classList.contains("register-error") == true){
+        document.getElementById('registererrors').style.display = 'block'
+        console.log(errorsDivs.classList.contains('register-error'))
+        console.log("me"+document.querySelector('li'))
+    // when login errors are present
+    } else if (document.querySelector('li').classList.contains("login-error") == true){
+        document.getElementById('loginerrors').style.display = 'block'
+        console.log(errorsDivs.classList.contains('login-error'))
+    }
 }
 
-var login_error_div_content = document.getElementById('loginerrors').innerHTML.length
-console.log(login_error_div_content)
+// Running error visibility function
+error_visibility()
 
-if (login_error_div_content> 84){
-    document.getElementById('loginerrors').style.display = 'block'
-    document.getElementById('registererrors').style.display = 'none'
-}
-
-console.log(document.getElementById('registererrors').innerHTML)
 // this method change password visibility
 function showPassword() {
     var pwd = document.getElementById("password");

@@ -4,7 +4,12 @@
     padding: 0px;
     font-size: 100%;
     box-sizing: border-box;
-    color: #ffffff;
+    font-family: 'Concert One', cursive;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    background-color: #5A1970;
 }
 
 .container{
@@ -15,23 +20,37 @@
 }
 
 .register-form{
-    background-color:#795FE5 ;
+    background-color:#333333 ;
     width: 400px;
     display: flex;
     flex-direction: column;
     margin: 0px auto;
     padding: 20px;
     border-radius: 2px;
+    color: #ffffff;
+}
+
+.register-form h1{
+    color:#3832B9;
+    font-size: 200%;
+    margin-bottom: 30px;
 }
 
 .login-form{
-    background-color: #FF524E;
+    background-color: #333333;
     width: 400px;
     display: flex;
     flex-direction: column;
     margin: 0px auto;
     padding: 20px;
     border-radius: 2px;
+    color: #ffffff;
+}
+
+.login-form h1{
+    color:#42BE9B;
+    font-size: 200%;
+    margin-bottom: 30px;
 }
 
 h1{
@@ -58,6 +77,7 @@ button{
     position: relative;
     left: 0px;
     margin-top: 20px;
+    border-radius: 5px;
 }
 
 .register-button{
@@ -74,7 +94,7 @@ button{
     border: 0px;
 }
 /* flash messages category */
-.error{
+.register-error,.login-error{
     color:#ff0000;
 }
 
@@ -86,9 +106,24 @@ button{
 
 .errors ul li{
     list-style: none;
+    color:#ff0000;
 }
 
 #registererrors,#loginerrors{
     display: none;
 }
 
+
+.show-password{
+    margin-top: 10px;
+}
+
+.log-out-button{
+    padding: 7px;
+    width: 60px;
+    background-color:#42BE9B ;
+    border: 0px;
+    position: relative;
+    top: 60px;
+    left: -500px;
+}
