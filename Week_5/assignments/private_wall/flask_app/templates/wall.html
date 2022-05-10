@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wall One</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='/css/style.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container">
+    <header>
+        <h1>Coding Dojo Wall</h1>
+        <div class="greeting">
+            <p>Welcome,{{first_name}}!!</p>
+            <a href="/logout" class="logout">logout</a>
+        </div>
+    </header>
+    <main>
+        <div class="notifications">
+            <p class="title">##Message(s) for you</p>
+            <div class="message">
+                <div class="notification">
+                    <p>## Said (##):</p> 
+                    <p>"##"</p>
+                </div>
+                <div class="delete-notification">
+                    <a href=""><i class="bi bi-trash"></i></a>
+                </div>
+            </div>
+
+        </div>
+        <div class="send-message">
+            <p class="tittle">Send Messages</p>
+            <p>You have ## messages so far</p>
+            <div class="message-to-send">
+                <form action="">
+                    <label for="message">##</label>
+                    <input type="textarea" id="message" name="message">
+                    <button type="submit" class="send-message-button">Send</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    </div>
+    <script type="text/javascript" src="{{ url_for('static', filename='/js/scripts.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in and registration</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='/css/style.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Roboto:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="register-form">
+            <form action="/register" method="post">
+                <h1>Register</h1>
+                <div class="errors" id="registererrors" >
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        <ul class=flashes>
+                        {% for category,message in messages %}
+                            <li class="{{category}}"><em>{{ message }}</em></li>
+                        {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endwith %}
+                </div>
+                <div class="mb-3">
+                    <label for="first_name" class="form-label">First Name: </label>
+                    <input type="text" class="form-control" id="first_name" name="first_name" >
+                </div>
+                <div class="mb-3">
+                    <label for="last_name" class="form-label">Last Name: </label>
+                    <input type="text" class="form-control" id="last_name" name="last_name" >
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email: </label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password: </label>
+                    <input type="password" class="form-control" id="password" name="password" >
+                </div>
+                <div class="mb-3">
+                    <label for="confirmed_password" class="form-label">Confirm Password: </label>
+                    <input type="password" class="form-control" id="confirmed_password" name="confirmed_password" >
+                    <input class="show-password" type="checkbox" onclick="showPassword()">Show Password
+
+                </div>
+            <button type="submit" class="register-button">Register</button>
+            </form>
+        </div>
+        <div class="login-form">
+            <form action="/login" method="post">
+                <h1>Login</h1>
+                <div class="errors" id="loginerrors">
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            <ul class=flashes>
+                            {% for category,message in messages %}
+                                <li class="{{category}}"><em>{{ message }}</em></li>
+                            {% endfor %}
+                            </ul>
+                        {% endif %}
+                    {% endwith %}
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email: </label>
+                    <input type="text" class="form-control" id="email" name="email" >
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" >
+                    <input class="show-password" type="checkbox" onclick="showPassword()">Show Password
+                </div>
+                <button type="submit" class="login-button">Login</button>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript" src="{{ url_for('static', filename='/js/scripts.js') }}"></script>
+</body>
+</html>
