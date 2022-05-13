@@ -68,7 +68,7 @@ def wall():
         }
         this_user = user.User.get_one_user_by_id(data)
         users_to_display_on_the_wall = user.User.get_all_users()
-        return render_template('wall.html',user = this_user,users = users_to_display_on_the_wall)
+        return render_template('wall.html',this_user = this_user,users = users_to_display_on_the_wall)
 
 # this route clears the sessions
 @app.route('/logout')

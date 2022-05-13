@@ -95,7 +95,7 @@ button{
     border: 0px;
 }
 /* flash messages category */
-.register-error,.login-error{
+.register-error,.login-error,.message-error{
     color:#ff0000;
 }
 
@@ -110,7 +110,7 @@ button{
     color:#ff0000;
 }
 
-#registererrors,#loginerrors{
+#registererrors,#loginerrors,#messageerror{
     display: none;
 }
 
@@ -132,4 +132,30 @@ button{
 /* wall logout link */
 .greeting a{
     color: #ffffff;
+}
+
+/* Wall properties */
+.wall-container{
+    display: flex;
+    flex-direction: column;
+    margin: 0px auto;
+    width: 800px;
+    justify-content: space-between;
+}
+
+main{
+    display: flex;
+    margin: 0px auto;
+    width: inherit;
+    justify-content: space-between;
+}
+
+.send-message,.message-to-send,form{
+    display: flex;
+    flex-direction: column;
+}
+
+.send-message-button{
+    width: 70px;
+    color: #000000;
 }

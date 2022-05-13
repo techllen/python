@@ -9,12 +9,15 @@ function error_visibility(){
     // when register errors are present
     if (document.querySelector('li').classList.contains("register-error") == true){
         document.getElementById('registererrors').style.display = 'block'
-        console.log(errorsDivs.classList.contains('register-error'))
-        console.log("me"+document.querySelector('li'))
+        // console.log(errorsDivs.classList.contains('register-error'))
+        // console.log("me"+document.querySelector('li'))
     // when login errors are present
     } else if (document.querySelector('li').classList.contains("login-error") == true){
         document.getElementById('loginerrors').style.display = 'block'
-        console.log(errorsDivs.classList.contains('login-error'))
+        // console.log(errorsDivs.classList.contains('login-error'))
+    } else if (document.querySelector('li').classList.contains("message-error") == true){
+        document.getElementById('messageerror').style.display = 'block'
+        // console.log(errorsDivs.classList.contains('login-error'))
     }
 }
 

@@ -1,10 +1,8 @@
-from select import select
-import this
 from flask_app.config.mysqlconnection import connectToMySQL
 import re
 from flask import flash
 class User:
-    database_name = 'log_in_and_registration'
+    database_name = 'private_wall_db'
     def __init__(self,data):
         self.id = data['id']
         self.first_name = data['first_name']
@@ -34,11 +32,11 @@ class User:
     # this method get all users from our database
     @classmethod
     def get_all_users(cls):
-        query = "SELECT * FROM users"
+        query = "SELECT * FROM users ORDER BY first_name ASC"
         users = connectToMySQL(User.database_name).query_db(query)
         users_to_display = []
         # checking if we found any user
-        if len(users) < 1:
+        if len(users) < 0:
             return False
         else:
         # turning user results to objects
