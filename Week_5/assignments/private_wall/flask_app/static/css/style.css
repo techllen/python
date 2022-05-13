@@ -128,3 +128,8 @@ button{
     top: 60px;
     left: -500px;
 }
+
+/* wall logout link */
+.greeting a{
+    color: #ffffff;
+}

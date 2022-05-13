@@ -16,7 +16,7 @@
     <header>
         <h1>Coding Dojo Wall</h1>
         <div class="greeting">
-            <p>Welcome,{{first_name}}!!</p>
+            <p>Welcome,{{user.first_name}}!!</p>
             <a href="/logout" class="logout">logout</a>
         </div>
     </header>
@@ -38,10 +38,17 @@
             <p class="tittle">Send Messages</p>
             <p>You have ## messages so far</p>
             <div class="message-to-send">
-                <form action="">
-                    <label for="message">##</label>
-                    <input type="textarea" id="message" name="message">
-                    <button type="submit" class="send-message-button">Send</button>
+                <form action="/send_message" method="post">
+                    {%for user in users%}
+                    <!-- Excluding the name of the user in session -->
+                        {%if user.first_name != first_name%}
+                            <label for="message">{{user.first_name}}</label>
+                            <!-- retrieving id of the receiver -->
+                            <input type="hidden" name="receiver" value="{{user.id}}">
+                            <input type="textarea" id="message" name="message">
+                            <button type="submit" class="send-message-button">Send</button>
+                        {%endif%}
+                    {%endfor%}
                 </form>
             </div>
         </div>

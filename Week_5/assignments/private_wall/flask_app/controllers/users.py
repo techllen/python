@@ -25,11 +25,9 @@ def register():
         #assigning the password hash into the password dictionary key    
         'password': password_hash
     }
-    # saving the data
-    user_id = user.User.register_user(data)
-    # assigning session to the user
-    session['user_id'] = user_id
-    session['first_name'] = request.form['first_name'] #used to display username in the wall page
+    # saving the data and assigning session to the user
+    session['user_id'] = user.User.register_user(data)
+    # session['first_name'] = request.form['first_name'] #used to display username in the wall page
     return redirect('/wall')
 
     
@@ -51,7 +49,7 @@ def login():
         return redirect('/')
     #assigning session to the user
     session['user_id'] = found_user.id
-    session['first_name'] = found_user.first_name #used to display username in the wall page
+    # session['first_name'] = found_user.first_name #used to display username in the wall page
     return redirect('/wall')
 
 # this route directs the user to the wall page and display his name
@@ -62,16 +60,19 @@ def wall():
      redirect them back to the login and registration page.
     """
     # checking if the user is in session
-    if session.get('user_id')==None and session.get('first_name')==None:
+    if session.get('user_id')==None:
         return redirect('/')
     else:
-        return render_template('wall.html',first_name = session['first_name'])
+        data = {
+            'id':session["user_id"]
+        }
+        this_user = user.User.get_one_user_by_id(data)
+        users_to_display_on_the_wall = user.User.get_all_users()
+        return render_template('wall.html',user = this_user,users = users_to_display_on_the_wall)
 
 # this route clears the sessions
 @app.route('/logout')
 def logout():
-    session.pop('user_id')
-    session.pop('first_name')
     session.clear()
     # print(str(session.get('user_id')))
     return redirect('/')

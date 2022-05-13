@@ -1,8 +1,10 @@
 from select import select
+import this
 from flask_app.config.mysqlconnection import connectToMySQL
 import re
 from flask import flash
 class User:
+    database_name = 'log_in_and_registration'
     def __init__(self,data):
         self.id = data['id']
         self.first_name = data['first_name']
@@ -17,19 +19,47 @@ class User:
     def register_user(cls,data):
         query = 'INSERT INTO users (first_name,last_name,email,password) VALUES(%(first_name)s,%(last_name)s,%(email)s,%(password)s)' 
         # retrieving the id of created user for session
-        user_id = connectToMySQL('log_in_and_registration').query_db(query,data)
+        user_id = connectToMySQL(User.database_name).query_db(query,data)
         return user_id
     # this method verifies users from our database
     @classmethod
     def verify_user(cls,data):
         query = "SELECT * FROM users WHERE email = %(email)s"
-        user = connectToMySQL('log_in_and_registration').query_db(query,data)
+        user = connectToMySQL(User.database_name).query_db(query,data)
         # print(user)
         # checking if we found any user
         if len(user) < 1:
             return False
         return cls(user[0])
+    # this method get all users from our database
+    @classmethod
+    def get_all_users(cls):
+        query = "SELECT * FROM users"
+        users = connectToMySQL(User.database_name).query_db(query)
+        users_to_display = []
+        # checking if we found any user
+        if len(users) < 1:
+            return False
+        else:
+        # turning user results to objects
+            for user in users:
+                this_user = cls(user)
+                # print(this_user)
+                users_to_display.append(this_user)
+            # returning list of user objects
+            return users_to_display
     
+    # this method get one user from the database
+    @classmethod
+    def get_one_user_by_id(cls,data):
+        query = "SELECT * FROM users WHERE id = %(id)s"
+        user = connectToMySQL(User.database_name).query_db(query,data)
+        # print(user)
+        # checking if we found any user
+        if len(user) < 1:
+            return False
+        return cls(user[0])
+    # this method flashed error messages only when invalid credentials have been entered in registration
     @staticmethod
     def user_validation(user):
         is_valid = True
@@ -64,7 +94,7 @@ class User:
             flash('- Entered password must be the same as confirmed password','register-error')
             is_valid = False
         return is_valid
-    # this method flashed error messages only when invalid credentials have been entered
+    # this method flashed error messages only when invalid credentials have been entered on logging in
     @staticmethod
     def user_login_validation(invalid_message):
         # flash invalid email message if email was not found
