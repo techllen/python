@@ -7,16 +7,22 @@ from flask_app.models import message
 @app.route('/send_message',methods = ['POST'])
 def send_message():
     # if message has allowed length save it
-    if message.Message.message_is_valid(request.form['message']):
+    valid_message = message.Message.validate_message(request.form)
+    # save data if message is valid
+    if valid_message == True: 
         data = {
-            "content": request.form['message'],
-            "sender_id": session['user_id'],
-            "receiver_id":request.form["receiver_id"]
-        }
-        print(data)
+                "content": request.form['message'],
+                "sender_id": session['user_id'],
+                "receiver_id":request.form["receiver_id"]
+            }
         message.Message.save_message(data)
-    # flash error message
-    else:
-        message.Message.message_is_valid(request.form['message'])
-  
+    return redirect ("/wall")
+
+@app.route("/delete_message",methods = ["POST"])
+def delete_message():
+    data = {
+        "id" : request.form["message_id"]
+    }
+    # call delete message from model
+    message.Message.delete_message(data)
     return redirect ("/wall")

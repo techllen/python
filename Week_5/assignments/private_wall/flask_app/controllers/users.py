@@ -1,7 +1,8 @@
 from flask_app import app
 from flask import render_template,redirect,session,request
-from flask_app.models import user
+from flask_app.models import user,message
 from flask_bcrypt import Bcrypt        
+from datetime import datetime
 bcrypt = Bcrypt(app)
 
 # this route redirect users to the index/home page
@@ -56,8 +57,8 @@ def login():
 @app.route('/wall')
 def wall():
     """
-     If the user attempts to access the success page (i.e. making a GET request by typing in the url), 
-     redirect them back to the login and registration page.
+    If the user attempts to access the success page (i.e. making a GET request by typing in the url), 
+    redirect them back to the login and registration page.
     """
     # checking if the user is in session
     if session.get('user_id')==None:
@@ -68,7 +69,15 @@ def wall():
         }
         this_user = user.User.get_one_user_by_id(data)
         users_to_display_on_the_wall = user.User.get_all_users()
-        return render_template('wall.html',this_user = this_user,users = users_to_display_on_the_wall)
+        # getting all messages sent to me
+        my_messages_list_result = message.Message.get_my_messages(data)
+        # getting all messages user has sent to other people
+        my_sent_messages_list_result = message.Message.get_all_sent_messages(data)
+        # in case no messages for the user
+        if len(my_messages_list_result) == 0 and len(my_sent_messages_list_result) == 0 :
+            return render_template('wall.html',this_user = this_user,users = users_to_display_on_the_wall)
+        else:
+            return render_template('wall.html',this_user = this_user,users = users_to_display_on_the_wall,messages_sent_to_me = my_messages_list_result,today_date = datetime.now(),number_of_messages_sent = len(my_sent_messages_list_result))
 
 # this route clears the sessions
 @app.route('/logout')

@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
 </head>
 <body>
@@ -33,34 +34,40 @@
     </header>
     <main>
         <div class="notifications">
-            <p class="title">##Message(s) for you</p>
+            <p class="title">{{messages_sent_to_me | length}} Message(s) for you</p>
             <div class="message">
                 <div class="notification">
-                    <p>## Said (##):</p> 
-                    <p>"##"</p>
-                </div>
-                <div class="delete-notification">
-                    <a href=""><i class="bi bi-trash"></i></a>
+                    {% for message_to_me in messages_sent_to_me%}
+                    <!-- Convert a time delta object into hours -->
+                        <p>{{message_to_me.sender}} Said ({{(today_date - message_to_me.created_at).seconds//3600}} hours ago):</p> 
+                        <p>"{{message_to_me.content}}"</p>
+                        <div class="delete-notification">
+                            <form action="/delete_message" method="post">
+                                <input type="hidden" name="message_id" value="{{message_to_me.id}}">
+                                <button type="submit"> <a href="/deletemessage"><span class="material-symbols-outlined">delete_sweep</span></i></a></button>
+                            </form>
+                        </div>
+                    {%endfor%}
                 </div>
             </div>
 
         </div>
         <div class="send-message">
             <p class="tittle">Send Messages</p>
-            <p>You have ## messages so far</p>
+            <p>You have sent {{number_of_messages_sent}} messages so far</p>
             <div class="message-to-send">
-                <form action="/send_message" method="post">
-                    {%for user in users%}
-                    <!-- Excluding the name of the user in session -->
-                        {%if user.first_name != this_user.first_name%}
-                            <label for="message">{{user.first_name}}</label>
+                {%for user in users%}
+                <!-- Excluding the name of the user in session -->
+                    {%if user.first_name != this_user.first_name%}
+                    <form action="/send_message" method="post">
+                        <label for="message">{{user.first_name}}</label>
                             <!-- retrieving id of the receiver -->
-                            <input type="hidden" name="receiver_id" value="{{user.id}}">
-                            <input type="textarea" id="message" name="message">
-                            <button type="submit" class="send-message-button">Send</button>
-                        {%endif%}
-                    {%endfor%}
-                </form>
+                        <input type="hidden" name="receiver_id" value="{{user.id}}">
+                        <input type="textarea" id="message" name="message">
+                        <button type="submit" class="send-message-button">Send</button>
+                    </form>
+                    {%endif%}
+                {%endfor%}
             </div>
         </div>
     </main>
