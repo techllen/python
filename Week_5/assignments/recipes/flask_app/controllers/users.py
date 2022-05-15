@@ -62,13 +62,13 @@ def dashboard():
         data = {
             "id": session["user_id"]
         }
-        user_to_display = user.User.get_one_user_by_id(data)
+        # user_to_display = user.User.get_one_user_by_id(data)
         # if there is no recipe for the user
-        if recipe.Recipe.get_all_recipes_by_a_user_id(data) == None:
+        if recipe.Recipe.get_all_recipes() == None:
             return render_template("dashboard.html",user_to_display = user.User.get_one_user_by_id(data))
         else:
             # print(f"user is {user_to_display.first_name}")
-            return render_template("dashboard.html",user_to_display = user.User.get_one_user_by_id(data),recipes_to_display = recipe.Recipe.get_all_recipes_by_a_user_id(data))
+            return render_template("dashboard.html",user_to_display = user.User.get_one_user_by_id(data),recipes_to_display = recipe.Recipe.get_all_recipes())
 
 # # this route allows user to access a certain page in a link
 # @app.route("/page")

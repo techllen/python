@@ -27,10 +27,16 @@
               </tr>
               {%for recipe in recipes_to_display%}
               <tr>
-                <td>{{recipe.name}}</td>
-                <td>{{recipe.under_thirty_minutes}}</td>
-                <td><a href="/recipes/{{recipe.id}}">View Instructions</a> | <a href="/recipes/edit/{{recipe.id}}">Edit</a> | <a href="/recipes/delete/{{recipe.id}}">Delete</a></td>
-              </tr>
+                {%if user_to_display.id == recipe.user_id%}
+                  <td>{{recipe.name}}</td>
+                  <td>{{recipe.under_thirty_minutes}}</td>
+                  <td><a href="/recipes/{{recipe.id}}">View Instructions</a> | <a href="/recipes/edit/{{recipe.id}}">Edit</a> | <a href="/recipes/delete/{{recipe.id}}">Delete</a></td>
+                {%else%}
+                  <td>{{recipe.name}}</td>
+                  <td>{{recipe.under_thirty_minutes}}</td>
+                  <td><a href="/recipes/{{recipe.id}}">View Instructions</a></td>
+                {%endif%}
+                </tr>
               {%endfor%}
             </table>
       </div>
