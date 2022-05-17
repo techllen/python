@@ -1,0 +1,5 @@
+Read About WSGI
+- https://peps.python.org/pep-3333/
+
+Resource to create git ignore files
+-https://www.toptal.com/developers/gitignore
