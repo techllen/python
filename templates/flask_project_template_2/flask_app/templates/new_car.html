@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Dealz</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='/css/style.css')}}">
+</head>
+<body>
+    <div class="container">
+        <div class="heading">
+            <h1>Put Car Up For Sale</h1>
+            <div class="heading-link">
+                <a href="/dashboard"><button>Dashboard</button></a>
+                <a href="/logout"><button>Logout</button></a>
+            </div>
+        </div>
+        <form action="/save_car" method="POST" class="car-edit-form">
+            {% with messages = get_flashed_messages(category_filter=["input-error"]) %}    
+                {% if messages %}                            
+                    {% for message in messages %}            
+                        <p>{{message}}</p> 
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <div>
+                <label>Price:</label><br>
+                <input type="number" min="1" step="any" name="price" placeholder="use format eg.2000.34" required/>
+            </div>
+            <div>
+                <label>Model:</label><br>
+                <input type="text" name="model" required>
+            </div>
+            <div>
+                <label>Make:</label><br>
+                <input type="text" name="make" required>
+            </div>
+            <div>
+                <label>Year:</label><br>
+                <input class="year" type="number" min="1" max="2100" step="1" placeholder="use format eg.2022" name="year" required/>
+            </div>
+            <div>
+                <label>Description:</label><br>
+                <!-- <input type="text"  name="description" class="descr" required/> -->
+                <textarea name="description" id="" cols="30" rows="10" class="descr" required></textarea>
+            </div>
+            <button type="submit" class="btn">Add</button>
+        </form>
+    </div>
+    <script type="text/javascript" src="{{ url_for('static', filename='/js/scripts.js') }}"></script>
+</body>
+</html>

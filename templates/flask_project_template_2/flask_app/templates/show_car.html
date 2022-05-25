@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Dealz</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='/css/style.css')}}">
+</head>
+<body>
+    <div class="container-show">
+        <div class="heading">
+            <div class="heading-link-show">
+                <a href="/dashboard"><button>Dashboard</button></a>
+                <a href="/logout"><button>Logout</button></a>
+            </div>
+        </div>
+        <div class="car_details">
+            <div class="car-description">
+                <p class="price"><strong>${{car_to_display.price}}</strong></p>
+                <p><strong>Model: {{car_to_display.model}}</strong></p>
+                <p><strong>Make: {{car_to_display.make}}</strong></p>
+                <p><strong>Year: {{car_to_display.year}}</strong></p>
+                <p><strong>Description: {{car_to_display.description}}</strong></p>
+            </div>
+            <div class="seller-purchase">
+                <p>Seller: {{car_to_display.user.first_name}} {{car_to_display.user.last_name}}</p>
+                <a href="/cars/delete/{{car_to_display.id}}" class="purchase-btn"><button>Purchase</button></a>
+            </div>
+        </div>
+        
+    </div>
+    <script type="text/javascript" src="{{ url_for('static', filename='/js/scripts.js') }}"></script>
+</body>
+</html>
