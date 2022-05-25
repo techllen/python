@@ -1,14 +1,26 @@
-<!DOCTYPE html> 
-<html lang="en"> 
-<head> 
-<meta charset="UTF-8"> 
-<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-<meta name="description" content=""> 
-<title>Getting Github</title> 
-<link rel="stylesheet" href="./css/style.css"> 
-</head> 
-<body> 
-<script src="./js/script.js"></script> 
-</body> 
-</html> 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <title>Getting Github</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+      <div class="container">
+          <button onclick="getUser()">Click to view user</button>
+          <p class="intro"></p>
+          <div class="user-data" id="user-data">
+            <form>
+                <label for="temp">Select User Information that you want to view</label>
+                <select name="selection" id="selection" onchange="getUserSelection()">
+                </select>
+                <p class="content"></p>
+              </form>
+          </div>
+      </div>
+    <script src="./js/script.js"></script>
+  </body>
+</html>

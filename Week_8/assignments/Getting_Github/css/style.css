@@ -5,3 +5,41 @@ margin: 0px;
 box-sizing: border-box; 
 font-size: 100%; 
 } 
+
+.container{
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    margin: 30px auto;
+    align-items: center;
+    justify-content: center;
+    background-color:#DCF4E5 ;
+    padding: 20px;
+}
+
+button{
+    background-color:#43A1B6 ;
+    padding: 10px;
+    color: #000000;
+    font-weight: bolder;
+    border-radius: 5px;
+    border: #43A1B6;
+    box-shadow: 3px 3px #000000;
+}
+
+.intro ,.content{
+    margin: 20px;
+}
+
+.user-data{
+    margin: 20px auto;
+    padding: 5px;
+    display: none;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    margin: 0px auto;
+    align-items: center;
+}

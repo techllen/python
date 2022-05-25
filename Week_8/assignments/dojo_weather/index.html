@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Coding Dojo Weather App" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mali:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <title>Weather Forecast</title>
+  </head>
+  <body>
+    <div id="container">
+      <div class="nav-background"></div>
+      <nav>
+        <div class="navbar">
+          <h1>DojoWeather</h1>
+          <ul class="nav-links">
+            <li onclick="alertWeatherReport(this);getCurrentWeather(this)">Burbank</li>
+            <li onclick="alertWeatherReport(this);getCurrentWeather(this)">Chicago</li>
+            <li onclick="alertWeatherReport(this);getCurrentWeather(this)">Dallas</li>
+          </ul>
+        </div>
+      </nav>
+      <main>
+        <div class="city-temperature">
+          <h1 class="city">San Jose</h1>
+          <div class="temperature">
+            <form>
+              <label for="temp">show temperature in</label>
+              <select name="temp" id="temp" onchange="celsiusToFahrenheit()">
+                <option value="celsius">&#8451;</option>
+                <option value="fahrenheit">&#8457;</option>
+              </select>
+            </form>
+          </div>
+        </div>
+        <div class="weather-card">
+          <div class="card">
+            <p class="day">Today</p>
+            <div class="weather-icon-1"></div>
+            <p class="weather-description">some rain</p>
+            <div class="high-low">
+              <p class="high">24&deg;</p>
+              <p class="low">18&deg;</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <p class="day">Tomorrow</p>
+            <div class="weather-icon-2"></div>
+            <p class="weather-description">some sun</p>
+            <div class="high-low">
+              <p class="high">27&deg;</p>
+              <p class="low">19&deg;</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <p class="day">Friday</p>
+            <div class="weather-icon-3"></div>
+            <p class="weather-description">some clouds</p>
+            <div class="high-low">
+              <p class="high">21&deg;</p>
+              <p class="low">16&deg;</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <p class="day">Saturday</p>
+            <div class="weather-icon-4"></div>
+            <p class="weather-description">some sun</p>
+            <div class="high-low">
+              <p class="high">26&deg;</p>
+              <p class="low">21&deg;</p>
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer>
+        <div class="cookie-policy">
+          <div class="cookie-icon"></div>
+          <div class="cookie-message">
+            <h1>Stop! Cookie time</h1>
+            <p>
+              We use cookies (sadly not the edible ones) to personalize content
+              and ads, to provide social media features and to analyse our
+              traffic.
+              <a href="#">Read more</a>
+            </p>
+          </div>
+          <button class="btn" onclick="removeCookiePolicy()">I Accept</button>
+        </div>
+      </footer>
+    </div>
+    <script src="./js/script.js"></script>
+  </body>
+</html>
