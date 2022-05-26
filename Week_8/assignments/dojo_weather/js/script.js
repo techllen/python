@@ -33,10 +33,10 @@ function celsiusToFahrenheit(){
 // this function make async call to the api to get the current weather
 async function getCurrentWeather(element){
     // The await keyword lets js know that it needs to wait until it gets a response back to continue.
-    // var response = await fetch("http://api.openweathermap.org/data/3.0/forecast/daily?id=524901&APPID=52ec07192d14ae6c4d0605f05fec6566");
-    // var response = await fetch("http://api.openweathermap.org/data/2.5/weather?q=Berlin&APPID=52ec07192d14ae6c4d0605f05fec6566");
+    // var response = await fetch("http://api.openweathermap.org/data/3.0/forecast/daily?id=524901&APPID=");
+    // var response = await fetch("http://api.openweathermap.org/data/2.5/weather?q=Berlin&APPID=");
     var cityName = element.innerHTML
-    var response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${cityName}&APPID=52ec07192d14ae6c4d0605f05fec6566`);
+    var response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${cityName}&APPID=`);
     // We then need to convert the data into JSON format.
     var weatherData = await response.json();
     console.log(weatherData)
